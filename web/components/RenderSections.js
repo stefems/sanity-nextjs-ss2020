@@ -6,7 +6,6 @@ import * as SectionComponents from './sections'
 function resolveSections (section) {
   // eslint-disable-next-line import/namespace
   const Section = SectionComponents[upperFirst(section._type)]
-
   if (Section) {
     return Section
   }
@@ -25,12 +24,12 @@ function RenderSections (props) {
 
   return (
     <Fragment>
-      {sections.map(section => {
+      {sections.map((section, index) => {
         const SectionComponent = resolveSections(section)
         if (!SectionComponent) {
           return <div>Missing section {section._type}</div>
         }
-        return <SectionComponent {...section} key={section._key} />
+        return <SectionComponent {...section} index={index} key={section._key} />
       })}
     </Fragment>
   )

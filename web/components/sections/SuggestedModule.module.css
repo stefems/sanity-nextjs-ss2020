@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.project {
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    cursor: pointer;
+}
+
+.chip {
+    background-color: lightgrey;
+    border-radius: 12px;
+    color: #00000099;
+    margin: 8px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.tag {
+    color: #00000099;
+    margin: 8px 0 8px 16px;
+}
+
+.tagContainer {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    font-size: 20px;
+    font-weight: 400;
+    align-items: center;
+}   
+
+.subtitle {
+    color: grey
+}
+
+.projects {
+    display: flex;
+}
+
+.image {
+    width: 20vw;
+    height: auto;
+}

@@ -1,4 +1,7 @@
 # Stink2020SMK
+npm -v: 6.11.3
+node -v: 12.11.0
+
 
 _SEO friendly page builder in React.js. Heroes, sign-up forms and calls to action._
 

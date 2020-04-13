@@ -1,0 +1,39 @@
+.container {
+    padding: 0 24px;
+    height: 33vh;
+    display: flex;
+}
+.image {
+    height: 30vh;
+}
+.portionContainer_0 {
+    display: flex;
+    width: 66%;
+    margin: 0 auto 0 10%;
+    cursor: pointer;
+}
+.portionContainer_1 {
+    display: flex;
+    width: 66%;
+    margin: 0 10% 0 auto;
+    cursor: pointer;
+}
+.imageContainer {
+    display: flex;
+}
+.textContainer {
+    margin: -56px 24px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    font-size: 28px;
+}
+.subtitle {
+    font-size: 18px;
+}
+.linkContainer {
+    cursor: pointer;
+}

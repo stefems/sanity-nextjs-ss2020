@@ -1,7 +1,11 @@
+import { AiFillFile } from 'react-icons/ai';
+import homeSlogan from '../objects/homeSlogan';
+
 export default {
   name: 'page',
   type: 'document',
   title: 'Page',
+  icon: AiFillFile,
   fieldsets: [
     {
       title: 'SEO & metadata',
@@ -17,12 +21,12 @@ export default {
     {
       name: 'content',
       type: 'array',
-      title: 'Page sections',
+      title: 'Content',
       of: [
-        { type: 'hero' },
-        { type: 'imageSection' },
-        { type: 'mailchimp' },
-        { type: 'textSection' },
+        { type: 'heroText'},
+        { type: 'homeSlogan'},
+        { type: 'homeModule' },
+        { type: 'workModule'}
       ],
     },
     {

@@ -14,6 +14,7 @@ const pageQuery = groq`
     ...,
     content[] {
       ...,
+      textChunks[]-> ,
       cta {
         ...,
         route->
@@ -21,8 +22,10 @@ const pageQuery = groq`
       ctas[] {
         ...,
         route->
-      }
-    }
+      },
+      project->,
+    },
+    
   }
 }
 `
@@ -31,12 +34,13 @@ class LandingPage extends Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
-    // TODO: improve types
+    heroText: PropTypes.string,
+    homeSlogan: PropTypes.object,
     disallowRobots: PropTypes.any,
     openGraphImage: PropTypes.any,
     content: PropTypes.any,
     config: PropTypes.any,
-    slug: PropTypes.any
+    slug: PropTypes.any,
   }
 
   static async getInitialProps ({query}) {
@@ -45,34 +49,10 @@ class LandingPage extends Component {
       console.error('no query')
       return
     }
-    if (slug && slug !== '/') {
-      return client.fetch(pageQuery, {slug}).then(res => ({...res.page, slug}))
-    }
-
-    // Frontpage
-    if (slug && slug === '/') {
-      return client
-        .fetch(
-          groq`
-        *[_id == "global-config"][0]{
-          frontpage -> {
-            ...,
-            content[] {
-              ...,
-              cta {
-                ...,
-                route->
-              },
-              ctas[] {
-                ...,
-                route->
-              }
-            }
-          }
-        }
-      `
-        )
-        .then(res => ({...res.frontpage, slug}))
+    if (slug) {
+      return client.fetch(pageQuery, {slug}).then(res => {
+        return {...res.page, slug}
+      })
     }
 
     return null
@@ -86,9 +66,8 @@ class LandingPage extends Component {
       openGraphImage,
       content = [],
       config = {},
-      slug
+      slug,
     } = this.props
-
     const openGraphImages = openGraphImage
       ? [
         {
@@ -125,7 +104,6 @@ class LandingPage extends Component {
         }
       ]
       : []
-
     return (
       <Layout config={config}>
         <NextSeo

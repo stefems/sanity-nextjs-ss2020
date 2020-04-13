@@ -1,0 +1,19 @@
+.image {
+    height: 60px;
+    width: 60px;
+    margin: 24px;
+}
+
+.container {
+    display: flex;
+}
+
+.location {
+    font-size: 20px;
+    color: grey;
+}
+
+.content {
+    padding: 24px 0;
+    font-size: 24px;;
+}

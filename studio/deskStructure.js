@@ -1,5 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdDashboard, MdSettings } from 'react-icons/lib/md'
+import { AiFillCopy } from 'react-icons/ai'
+import { MdSettings } from 'react-icons/md'
 
 // We filter document types defined in structure to prevent
 // them from being listed twice
@@ -11,7 +12,7 @@ export default () =>
     .title('Site')
     .items([
       S.listItem()
-        .title('Site config')
+        .title('Site Config')
         .icon(MdSettings)
         .child(
           S.editor()
@@ -21,7 +22,7 @@ export default () =>
         ),
       S.listItem()
         .title('Pages')
-        .icon(MdDashboard)
+        .icon(AiFillCopy)
         .schemaType('page')
         .child(S.documentTypeList('page').title('Pages')),
       S.listItem()
